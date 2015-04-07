@@ -3,17 +3,42 @@
 <head>
 	<title>Test RangeBar</title>
 	<script src="src/jquery-1.11.2.min.js"></script>
+	<script src="src/highstock.js"></script>
+	<script src="src/highcharts-3d.js"></script>
 	<script src="src/rangebar.js"></script>
 
 	<script type="text/javascript">
 		window.onload = function () {
-			$('#test').rangebar(/*{rangeFrom: 5, rangeTo: 50, point: 7}*/);
+			var opt = {
+				range: {
+					from: 0.05, 
+					to: 0.50
+				}, 
+				point: 0.4,
+				// fixedPoints: [0.1, 0.7] OR
+				fixedPoints: [ 
+                    {
+                        value: 0.1,
+                        css: {
+                            'border-top': '14px solid rgb(0, 108, 255)'
+                        }
+                    },
+                    {
+                        value: 0.7,
+                        css: {
+                            'border-top': '14px solid rgb(0, 255, 108)'
+                        }
+                    }
+                ]
+			}
+			$('#test').RangeBar(opt);
 		}
 	</script>
 </head>
 <body>
 
-	<div id="test" style="  width: 500px; height: 100px; margin-top: 10%; margin-left: auto; margin-right:auto;"></div>
+	<div id="test" style="width: 500px; margin-top: 1%; margin-left: auto; margin-right:auto;"></div>
 
 </body>
 </html>
+
